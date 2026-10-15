@@ -4,13 +4,9 @@ const path = require('path');
 
 const PORT = 3000;
 const filePath = path.join(__dirname, 'template.html');
-
 let templateData = '';
-try {
-  templateData = fs.readFileSync(filePath, 'utf8');
-} catch (err) {
-  console.error('Erreur lors de la lecture initiale du template :', err);
-}
+
+
 
 const server = http.createServer((req, res) => {
   if (req.url === '/favicon.ico') {
