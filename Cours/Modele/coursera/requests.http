@@ -1,0 +1,58 @@
+### Inscription d'un utilisateur
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "firstname": "John",
+  "lastname": "Doe",
+  "email": "john.doe2@example.com",
+  "password": "qwerty123"
+}
+
+### Connexion réussie
+POST http://localhost:3000/users/login
+Content-Type: application/json
+
+{
+  "email": "john.doe2@example.com",
+  "password": "qwerty123"
+}
+
+
+### 1. Se connecter pour obtenir le token
+POST http://localhost:3000/users/login
+Content-Type: application/json
+
+{
+  "email": "john.doe2@example.com",
+  "password": "qwerty123"
+}
+
+### 2. Ajouter un cours avec le header Authorization
+POST http://localhost:3000/courses
+Content-Type: application/json
+Authorization: Basic am9obi5kb2UyQGV4YW1wbGUuY29tOnF3ZXJ0eTEyMw==
+
+{
+  "title": "Introduction to NodeJS",
+  "nbChapters": 10
+}
+
+### Créer un cours via la route protégée /courses/new
+POST http://localhost:3000/courses/new
+Content-Type: application/json
+Authorization: Basic am9obi5kb2VAZXhhbXBsZS5jb206cXdlcnR5MTIz
+
+{
+    "title": "Introduction to NodeJS",
+    "nbChapters": 10
+}
+
+### Test erreur nbChapters manquant
+POST http://localhost:3000/courses/new
+Content-Type: application/json
+Authorization: Basic am9obi5kb2VAZXhhbXBsZS5jb206cXdlcnR5MTIz
+
+{
+    "title": "Introduction to NodeJS"
+}

@@ -1,0 +1,10 @@
+extends layout
+
+block content
+    h1 List of Courses
+    button#create-course-btn.btn.btn-primary(
+        hx-get="/courses/new"
+        hx-target="#main-content"
+        hx-swap="innerHTML"
+        hx-push-url="true"
+    ) Create a new course

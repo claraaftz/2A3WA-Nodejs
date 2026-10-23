@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres
+    restart: always
+    ports:
+      - "5435:5432" # On redirige le port 5435 de ta machine vers le 5432 de Docker
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: coursera
+
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    ports:
+      - "8081:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin

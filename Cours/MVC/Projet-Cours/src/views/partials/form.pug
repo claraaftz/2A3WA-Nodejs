@@ -1,0 +1,13 @@
+.container.d-flex.justify-content-center.mt-5
+    .card.shadow(style="width: 40%")
+        .card-body
+            h1.mb-4.text-center New Course
+
+            form(action="/courses", method="POST")
+                .mb-3
+                    label(for="title", class="form-label") Title
+                    input(type="text", name="title", id="title", class="form-control", required)
+                .mb-3
+                    label(for="nbChapters", class="form-label") Number of chapters
+                    input(type="number", name="nbChapters", id="nbChapters", class="form-control", min="1", required)
+                button(type="submit", class="btn btn-primary") Create

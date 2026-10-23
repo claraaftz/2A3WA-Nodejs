@@ -1,4 +1,3 @@
-// Définition de la classe Etudiant
 class Etudiant {
   constructor(id, prenom, note) {
     this.id = id;
